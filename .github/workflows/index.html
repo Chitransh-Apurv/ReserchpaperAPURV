@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2ndbencher.com - Professional Academic Research Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="logo">2ndbencher.com</h1>
+                    <p class="tagline">Professional Academic Research Excellence Made Easy</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <div class="container">
+                <div class="tab-container">
+                    <button class="tab-btn active" data-tab="home">Home</button>
+                    <button class="tab-btn" data-tab="research-tools">Research Tools</button>
+                    <button class="tab-btn" data-tab="writing-tools">Writing Tools</button>
+                    <button class="tab-btn" data-tab="document-tools">Document Tools</button>
+                    <button class="tab-btn" data-tab="image-tools">Image Tools</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Home Tab -->
+                <div class="tab-content active" id="home">
+                    <div class="hero-section">
+                        <h2>Welcome to 2ndbencher.com</h2>
+                        <p class="hero-description">Your comprehensive academic research companion offering professional-grade tools for research, writing, document creation, and content analysis.</p>
+                    </div>
+                    
+                    <div class="features-overview">
+                        <div class="feature-category">
+                            <h3>🔬 Research Tools</h3>
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <strong>Topic Generator:</strong> AI-powered research topic suggestions tailored to your field and academic level
+                                </div>
+                                <div class="feature-item">
+                                    <strong>Plagiarism Checker:</strong> Advanced plagiarism detection with detailed reports and improvement suggestions
+                                </div>
+                            </div>
+                            <button class="btn btn--primary" onclick="switchTab('research-tools')">Explore Research Tools</button>
+                        </div>
+
+                        <div class="feature-category">
+                            <h3>✍️ Writing Tools</h3>
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <strong>Content Reorganizer:</strong> Transform your text into well-structured, human-like paragraphs
+                                </div>
+                                <div class="feature-item">
+                                    <strong>Content Expander:</strong> Expand short content up to 1200 words while maintaining quality
+                                </div>
+                                <div class="feature-item">
+                                    <strong>Paper Recommendations:</strong> Get personalized suggestions for improving your academic papers
+                                </div>
+                            </div>
+                            <button class="btn btn--primary" onclick="switchTab('writing-tools')">Access Writing Tools</button>
+                        </div>
+
+                        <div class="feature-category">
+                            <h3>📄 Document Tools</h3>
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <strong>Document Creator:</strong> Professional templates for research papers, essays, and reports
+                                </div>
+                                <div class="feature-item">
+                                    <strong>Word Limit Analyzer:</strong> Check content against word limits with smart suggestions
+                                </div>
+                            </div>
+                            <button class="btn btn--primary" onclick="switchTab('document-tools')">Use Document Tools</button>
+                        </div>
+
+                        <div class="feature-category">
+                            <h3>🖼️ Image Tools</h3>
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <strong>Image to Text Converter:</strong> Extract text from images using advanced OCR technology
+                                </div>
+                                <div class="feature-item">
+                                    <strong>Text Extractor:</strong> Batch processing with language detection and formatting preservation
+                                </div>
+                            </div>
+                            <button class="btn btn--primary" onclick="switchTab('image-tools')">Try Image Tools</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Tools Tab -->
+                <div class="tab-content" id="research-tools">
+                    <div class="tools-section">
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <h3>🎯 Research Topic Generator</h3>
+                                <p>Generate compelling research topics tailored to your academic level and field of study</p>
+                            </div>
+                            
+                            <div class="tool-content">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="field-study">Field of Study</label>
+                                        <select id="field-study" class="form-control">
+                                            <option value="">Select Field</option>
+                                            <option value="Technology">Technology</option>
+                                            <option value="Business">Business</option>
+                                            <option value="Science">Science</option>
+                                            <option value="Social Sciences">Social Sciences</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="academic-level">Academic Level</label>
+                                        <select id="academic-level" class="form-control">
+                                            <option value="">Select Level</option>
+                                            <option value="high-school">High School</option>
+                                            <option value="undergraduate">Undergraduate</option>
+                                            <option value="graduate">Graduate</option>
+                                            <option value="phd">PhD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn btn--primary" id="generate-topics">Generate Topics</button>
+                                
+                                <div class="results-section" id="topics-results">
+                                    <div class="topics-grid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <h3>🔍 Plagiarism Checker</h3>
+                                <p>Analyze your content for potential plagiarism with detailed reports (up to 1000 words)</p>
+                            </div>
+                            
+                            <div class="tool-content">
+                                <div class="form-group">
+                                    <label class="form-label" for="plagiarism-text">Content to Check</label>
+                                    <textarea id="plagiarism-text" class="form-control" rows="8" placeholder="Paste your content here (max 1000 words)..."></textarea>
+                                    <div class="word-count">Word count: <span id="plagiarism-word-count">0</span>/1000</div>
+                                </div>
+                                
+                                <div class="upload-section">
+                                    <label class="file-upload-label">
+                                        <input type="file" id="plagiarism-file-upload" accept=".txt,.doc,.docx,.pdf">
+                                        📁 Upload Document
+                                    </label>
+                                    <span class="upload-info">Supported: .txt, .doc, .docx, .pdf</span>
+                                </div>
+                                
+                                <button class="btn btn--primary" id="check-plagiarism">Check Plagiarism</button>
+                                
+                                <div class="results-section" id="plagiarism-results">
+                                    <div class="plagiarism-report"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Writing Tools Tab -->
+                <div class="tab-content" id="writing-tools">
+                    <div class="tools-section">
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <h3>🔄 Paragraph Reorganizer</h3>
+                                <p>Transform your text into well-structured, human-like paragraphs with better flow</p>
+                            </div>
+                            
+                            <div class="tool-content">
+                                <div class="form-group">
+                                    <label class="form-label" for="reorganize-text">Original Content</label>
+                                    <textarea id="reorganize-text" class="form-control" rows="6" placeholder="Enter your content to reorganize..."></textarea>
+                                    <div class="word-count">Word count: <span id="reorganize-word-count">0</span></div>
+                                </div>
+                                
+                                <div class="action-buttons">
+                                    <button class="btn btn--primary" id="humanize-content">Humanize Content</button>
+                                    <button class="btn btn--outline" id="reorganize-content">Reorganize Structure</button>
+                                </div>
+                                
+                                <div class="results-section" id="reorganizer-results">
+                                    <div class="comparison-container"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <h3>📈 Content Expander</h3>
+                                <p>Expand your content up to 1200 words while maintaining original meaning and quality</p>
+                            </div>
+                            
+                            <div class="tool-content">
+                                <div class="form-group">
+                                    <label class="form-label" for="expand-text">Short Content</label>
+                                    <textarea id="expand-text" class="form-control" rows="4" placeholder="Enter short content to expand..."></textarea>
+                                    <div class="word-count">Word count: <span id="expand-word-count">0</span></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="target-words">Target Word Count</label>
+                                    <select id="target-words" class="form-control">
+                                        <option value="500">500 words</option>
+                                        <option value="800">800 words</option>
+                                        <option value="1000">1000 words</option>
+                                        <option value="1200" selected>1200 words</option>
+                                    </select>
+                                </div>
+                                
+                                <button class="btn btn--primary" id="expand-content">Expand to Target Length</button>
+                                
+                                <div class="results-section" id="expander-results">
+                                    <div class="expanded-content"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <h3>💡 Paper Recommendations</h3>
+                                <p>Get personalized suggestions for improving your academic papers</p>
+                            </div>
+                            
+                            <div class="tool-content">
+                                <div class="form-group">
+                                    <label class="form-label" for="paper-content">Paper Content</label>
+                                    <textarea id="paper-content" class="form-control" rows="8" placeholder="Paste your paper content for analysis..."></textarea>
+                                    <div class="word-count">Word count: <span id="paper-word-count">0</span></div>
+                                </div>
+                                
+                                <button class="btn btn--primary" id="analyze-paper">Analyze & Get Recommendations</button>
+                                
+                                <div class="results-section" id="recommendations-results">
+                                    <div class="recommendations-container"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Tools Tab -->
+                <div class="tab-content" id="document-tools">
+                    <div class="tools-section">
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <h3>📝 Document Creator</h3>
+                                <p>Create professional documents using templates for research papers, essays, and reports</p>
+                            </div>
+                            
+                            <div class="tool-content">
+                                <div class="form-group">
+                                    <label class="form-label" for="doc-template">Template Type</label>
+                                    <select id="doc-template" class="form-control">
+                                        <option value="">Select Template</option>
+                                        <option value="research-paper">Research Paper</option>
+                                        <option value="essay">Essay</option>
+                                        <option value="report">Report</option>
+                                        <option value="proposal">Research Proposal</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="doc-title">Document Title</label>
+                                    <input type="text" id="doc-title" class="form-control" placeholder="Enter document title...">
+                                </div>
+                                
+                                <button class="btn btn--primary" id="create-document">Create Document</button>
+                                
+                                <div class="results-section" id="document-results">
+                                    <div class="document-editor">
+                                        <div class="editor-toolbar">
+                                            <button class="toolbar-btn" id="bold-btn"><strong>B</strong></button>
+                                            <button class="toolbar-btn" id="italic-btn"><em>I</em></button>
+                                            <button class="toolbar-btn" id="heading-btn">H1</button>
+                                            <button class="toolbar-btn" id="list-btn">•</button>
+                                        </div>
+                                        <div id="document-content" class="document-content" contenteditable="true"></div>
+                                        <div class="export-options">
+                                            <button class="btn btn--outline btn--sm" id="export-docx">Export as DOCX</button>
+                                            <button class="btn btn--outline btn--sm" id="export-pdf">Export as PDF</button>
+                                            <button class="btn btn--outline btn--sm" id="export-txt">Export as TXT</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <h3>📊 Word Limit Analyzer</h3>
+                                <p>Check content against word limits and get suggestions for optimization</p>
+                            </div>
+                            
+                            <div class="tool-content">
+                                <div class="form-group">
+                                    <label class="form-label" for="analyzer-text">Content to Analyze</label>
+                                    <textarea id="analyzer-text" class="form-control" rows="8" placeholder="Paste your content here..."></textarea>
+                                    <div class="word-count">Current count: <span id="analyzer-word-count">0</span> words</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="word-limit">Word Limit</label>
+                                    <input type="number" id="word-limit" class="form-control" placeholder="Enter word limit..." value="1000">
+                                </div>
+                                
+                                <button class="btn btn--primary" id="analyze-limit">Analyze Word Limit</button>
+                                
+                                <div class="results-section" id="analyzer-results">
+                                    <div class="analysis-report"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Tools Tab -->
+                <div class="tab-content" id="image-tools">
+                    <div class="tools-section">
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <h3>🖼️ Image to Text Converter</h3>
+                                <p>Extract text from images using advanced OCR technology</p>
+                            </div>
+                            
+                            <div class="tool-content">
+                                <div class="image-upload-zone" id="image-drop-zone">
+                                    <div class="upload-icon">📷</div>
+                                    <p>Drag & drop images here or click to upload</p>
+                                    <input type="file" id="image-upload" accept="image/*,.pdf" multiple style="display: none;">
+                                    <button class="btn btn--outline" onclick="document.getElementById('image-upload').click()">Select Images</button>
+                                </div>
+                                
+                                <div class="uploaded-images" id="uploaded-images"></div>
+                                
+                                <button class="btn btn--primary" id="extract-text" style="display: none;">Extract Text from Images</button>
+                                
+                                <div class="results-section" id="ocr-results">
+                                    <div class="extracted-text-container"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <h3>📄 Text Extractor</h3>
+                                <p>Batch text extraction with language detection and formatting preservation</p>
+                            </div>
+                            
+                            <div class="tool-content">
+                                <div class="batch-upload-zone">
+                                    <div class="form-group">
+                                        <label class="form-label">Processing Options</label>
+                                        <div class="checkbox-group">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" id="preserve-formatting" checked>
+                                                Preserve Formatting
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" id="detect-language" checked>
+                                                Auto-detect Language
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" id="batch-process">
+                                                Batch Processing
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="file-list" id="extractor-file-list"></div>
+                                    
+                                    <button class="btn btn--primary" id="process-extraction">Process Files</button>
+                                </div>
+                                
+                                <div class="results-section" id="extractor-results">
+                                    <div class="extraction-results"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Professional Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>2ndbencher.com</h4>
+                        <p>Professional Academic Research Excellence</p>
+                    </div>
+                    <div class="footer-section">
+                        <h5>Tools</h5>
+                        <ul>
+                            <li>Research Tools</li>
+                            <li>Writing Tools</li>
+                            <li>Document Tools</li>
+                            <li>Image Tools</li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h5>Support</h5>
+                        <ul>
+                            <li>Help Center</li>
+                            <li>Documentation</li>
+                            <li>Contact</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 2ndbencher.com. All rights reserved. | Professional Academic Research Platform</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Loading Modal -->
+        <div class="modal hidden" id="loading-modal">
+            <div class="modal-content">
+                <div class="loader"></div>
+                <p id="loading-message">Processing your request...</p>
+            </div>
+        </div>
+
+        <!-- Toast Messages -->
+        <div class="toast hidden" id="toast">
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+<script src="app.js"></script>
+
+</body>
+</html>

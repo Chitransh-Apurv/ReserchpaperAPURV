@@ -1,0 +1,21 @@
+@media (max-width: 640px) {
+  .image-upload-zone {
+    padding: var(--space-20);
+  }
+  
+  .upload-icon {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .modal-content {
+    padding: var(--space-20);
+  }
+  
+  .tool-card {
+    border-radius: var(--radius-base);
+  }
+  
+  .features-overview {
+    grid-template-columns: 1fr;
+  }
+}
